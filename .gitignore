@@ -10,6 +10,8 @@
 
 # production
 /build
+/dist
+/.parcel-cache
 
 # misc
 .DS_Store
@@ -21,6 +23,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Tailwind processed CSS 
-index.css
