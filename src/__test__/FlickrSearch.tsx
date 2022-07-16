@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
-import App from "../component/App";
+import { FlickrSearch } from "../component/FlickrSearch";
 
 test("renders learn react link", () => {
-  const { getByText } = render(<App />);
+  const { getByText } = render(<FlickrSearch term={"car"} />);
   const linkElement = getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
