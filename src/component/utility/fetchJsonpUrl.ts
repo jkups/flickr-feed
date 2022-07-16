@@ -6,8 +6,6 @@ interface fetchJsonpUrlProps {
   term?: string;
 }
 export const fetchJsonpUrl = async ({ endpoint, term }: fetchJsonpUrlProps) => {
-  console.log(term);
-
   const options = { jsonpCallback: "jsoncallback", timeout: 3000 };
   const response = await fetchJsonp(`${endpoint}${term}`, options);
   return await response.json();
