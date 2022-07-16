@@ -1,16 +1,22 @@
-import { useEffect, useState, KeyboardEvent } from "react";
+import { useEffect, useState } from "react";
 
 import { flickrFeedEndpoint } from "./config/endpoints";
 import { extractFlickrFeedData } from "./utility/extractFlickrFeedData";
 import { flickrFeedItemInterface } from "./utility/extractFlickrFeedData";
 import { fetchJsonpUrl } from "./utility/fetchJsonpUrl";
 
-import { SearchResultContainer } from "./SearchResultContainer";
+import { SearchResultGridContainer } from "./SearchResultGridContainer";
+import { SearchResultListContainer } from "./SearchResultListContainer";
+
+import { ToggleSwitch } from "./ui/toggleSwitch";
+import { useMediaQuery } from "./hooks/useMediaQuery";
 // import FlickrLogo from "./flickrlogo.svg";
 
 const App = () => {
   const [data, setData] = useState([] as flickrFeedItemInterface[]);
   const [term, setTerm] = useState("car");
+  const [listView, setListView] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const handleSearch = () => {
     return fetchJsonpUrl({
@@ -67,19 +73,40 @@ const App = () => {
 
   return (
     <>
-      <div className="bg-white border-b border-pink-500 sticky top-0 shadow">
-        <div className="max-w-screen-xl mx-auto relative">
-          <header className="py-4 sticky top-0">
-            <input
-              className="rounded-lg font-semibold text-lg"
-              type="text"
-              placeholder="hello"
-              onKeyUp={(event) => setTerm(event.target.value)}
-            ></input>
-          </header>
+      <div className="sticky top-0 ">
+        <div className="bg-white border-b border-pink-500 shadow px-4 2xl:px-0">
+          <div className="max-w-screen-xl mx-auto relative">
+            <header className="py-4 flex justify-between items-center sticky top-0">
+              <input
+                className="rounded-lg font-semibold text-lg w-full md:w-96"
+                type="text"
+                placeholder="hello"
+                onKeyUp={(event) => setTerm(event.target.value)}
+              ></input>
+              <span className="text-2xl font-bold text-pink-800 hidden md:block">
+                {term.toUpperCase()} SEARCH
+              </span>
+            </header>
+          </div>
         </div>
       </div>
-      <SearchResultContainer data={data} />
+      <div className="px-4 2xl:px-0">
+        {!isMobile && (
+          <div className="max-w-screen-xl mx-auto pt-8 bg-white flex items-center gap-2">
+            <span>Grid View</span>
+            <ToggleSwitch
+              right={listView}
+              onClick={() => setListView(!listView)}
+            />
+            <span>List View</span>
+          </div>
+        )}
+        {listView && !isMobile ? (
+          <SearchResultListContainer data={data} />
+        ) : (
+          <SearchResultGridContainer data={data} />
+        )}
+      </div>
     </>
   );
 };
