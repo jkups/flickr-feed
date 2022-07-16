@@ -35,7 +35,7 @@ export const SearchResultListItem = ({
             <div className="text-lg font-bold text-pink-800">{getAuthor()}</div>
             <div className="text-xs text-gray-500 mb-8">{getDateTaken()}</div>
           </div>
-          <button className="h-full bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full">
+          <button className="h-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full">
             Click to View
           </button>
         </div>
