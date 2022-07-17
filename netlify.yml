@@ -3,4 +3,4 @@ Settings:
 
 build:
   command: yarn build
-  build: build
+  build: dist
