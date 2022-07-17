@@ -1,8 +1,10 @@
+import { flickrFeedItemInterface } from "./utility/extractFlickrFeedData";
+
 interface SearchResultItemProps {
   author: string;
   dateTaken: string;
   tags: string;
-  thumbnail: { [key: string]: string };
+  thumbnail: flickrFeedItemInterface;
 }
 
 export const SearchResultGridItem = ({
@@ -23,8 +25,13 @@ export const SearchResultGridItem = ({
   const tagsCollection = tags.split(" ");
 
   return (
-    <a href="/" className="border-2 rounded-xl overflow-hidden hover:shadow-md">
+    <a
+      href="/"
+      className="border-2 rounded-xl overflow-hidden hover:shadow-md"
+      data-testid="item"
+    >
       <div
+        data-testid="thumbnail"
         className="bg-cover h-36 ease-in duration-200 hover:scale-110"
         style={{ backgroundImage: `url(${thumbnail.m})` }}
       >

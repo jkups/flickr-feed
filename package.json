@@ -40,10 +40,14 @@
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
