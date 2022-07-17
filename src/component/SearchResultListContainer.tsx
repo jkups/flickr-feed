@@ -13,7 +13,11 @@ export const SearchResultListContainer = ({
   isLoading,
 }: SearchResultContainerProps) => {
   return (
-    <div id="container" className="max-w-screen-xl mx-auto py-6">
+    <div
+      data-testid="container"
+      id="container"
+      className="max-w-screen-xl mx-auto py-6"
+    >
       {isLoading ? (
         <div>Loading results...</div>
       ) : (
@@ -22,11 +26,11 @@ export const SearchResultListContainer = ({
             return (
               <SearchResultListItem
                 key={idx}
-                author={item.author}
-                dateTaken={item.date_taken}
-                thumbnail={item.media as unknown as flickrFeedItemInterface}
+                author={item.author as string}
+                dateTaken={item.date_taken as string}
+                thumbnail={item.media as flickrFeedItemInterface}
               >
-                <Tags tags={item.tags} />
+                <Tags tags={item.tags as string} />
               </SearchResultListItem>
             );
           })}

@@ -11,7 +11,11 @@ export const SearchResultGridContainer = ({
   isLoading,
 }: SearchResultContainerProps) => {
   return (
-    <div id="container" className="max-w-screen-xl mx-auto py-6">
+    <div
+      data-testid="container"
+      id="container"
+      className="max-w-screen-xl mx-auto py-6"
+    >
       {isLoading ? (
         <div>Loading results...</div>
       ) : (
@@ -20,10 +24,10 @@ export const SearchResultGridContainer = ({
             return (
               <SearchResultGridItem
                 key={idx}
-                author={item.author}
-                dateTaken={item.date_taken}
-                tags={item.tags}
-                thumbnail={item.media as unknown as flickrFeedItemInterface}
+                author={item.author as string}
+                dateTaken={item.date_taken as string}
+                tags={item.tags as string}
+                thumbnail={item.media as flickrFeedItemInterface}
               />
             );
           })}

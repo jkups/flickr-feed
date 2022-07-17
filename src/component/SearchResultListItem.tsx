@@ -1,7 +1,9 @@
+import { flickrFeedItemInterface } from "./utility/extractFlickrFeedData";
+
 interface SearchResultItemProps {
   author: string;
   dateTaken: string;
-  thumbnail: { [key: string]: string };
+  thumbnail: flickrFeedItemInterface;
   children: JSX.Element;
 }
 
@@ -24,8 +26,10 @@ export const SearchResultListItem = ({
     <a
       href="/"
       className="flex border-2 rounded-xl overflow-hidden hover:shadow-md"
+      data-testid="item"
     >
       <div
+        data-testid="thumbnail"
         className="basis-80 shrink-0 bg-cover w-64 min-h-[10rem] ease-in duration-200 hover:scale-110"
         style={{ backgroundImage: `url(${thumbnail.m})` }}
       ></div>

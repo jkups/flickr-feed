@@ -12,6 +12,7 @@ export const ToggleSwitch = ({ right, onClick }: ToggleSwitchProps) => {
       className="w-10 h-5 rounded-full cursor-pointer bg-sky-600 relative"
     >
       <div
+        data-testid="toggle"
         className={clsx(
           "rounded-full h-5 w-5 bg-white border-2 border-sky-600 absolute",
           right && "right-0"
