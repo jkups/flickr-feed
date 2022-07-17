@@ -5,6 +5,7 @@ This is a react app to search and display flickr photo feeds, showing a thumbnai
 - ensure you have `Node 18.6.0` installed
 - simply clone the repo and run `yarn install`
 - confirm everything is working by running `yarn test` or `yarn test:watch`
+- run `yarn parcel` to start up the server
 - a demo is hosted on Netlify @ [here](https://jkups-flickr-search.netlify.app/)
 
 ### Things to note
