@@ -58,9 +58,9 @@ export const SearchResultListItem = ({
               </div>
               <div className="text-xs text-gray-500 mb-8">{getDateTaken()}</div>
             </div>
-            <button className="text-lg font-bold border rounded-full px-4 border-pink-800 text-pink-800 hover:bg-pink-800 hover:text-white">
+            <div className="text-lg font-bold border rounded-full px-4 border-pink-800 text-pink-800 hover:bg-pink-800 hover:text-white">
               view
-            </button>
+            </div>
           </div>
           {children}
         </div>
