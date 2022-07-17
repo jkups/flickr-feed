@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Modal {
+  @apply absolute inset-0 overflow-hidden shadow-md bg-white md:rounded-3xl md:top-32 md:bottom-10 md:inset-x-10;
+}
+
+.Overlay {
+  @apply fixed inset-0 bg-white/80;
+}
