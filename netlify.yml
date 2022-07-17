@@ -1,0 +1,6 @@
+Settings:
+  ID: 5f5908ee-caf4-4a92-a446-2295de56d62c
+
+build:
+  command: yarn build
+  build: build
